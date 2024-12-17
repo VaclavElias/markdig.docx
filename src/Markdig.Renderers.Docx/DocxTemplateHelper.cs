@@ -1,6 +1,6 @@
-﻿using System.Reflection;
-using DocumentFormat.OpenXml.Packaging;
+﻿using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using System.Reflection;
 
 namespace Markdig.Renderers.Docx;
 
@@ -29,12 +29,12 @@ public class DocxTemplateHelper
         {
             throw new FileNotFoundException($"Failed to load resource from {templateResource}");
         }
-        
+
         var ms = new MemoryStream();
         stream.CopyTo(ms);
-        
+
         var document = WordprocessingDocument.Open(ms, true);
-        
+
         if (clean)
         {
             CleanContents(document);
